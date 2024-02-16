@@ -1,12 +1,9 @@
 {
-    "name": "demobox_node_red",
-    "description": "IoTempire demobox",
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
-    "node-red": {
-        "settings": {
-            "flowFile": "flows.json",
-            "credentialsFile": "flows_cred.json"
-        }
+    "private": true,
+    "dependencies": {
+        "node-red-dashboard": "~3.6.2"
     }
 }

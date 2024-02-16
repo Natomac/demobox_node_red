@@ -1,1 +1,2829 @@
-[]
+[
+    {
+        "id": "a950aaf3c3abcf49",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1bf6eb380a536391",
+        "type": "tab",
+        "label": "rfid_buzzer full",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1ad39695a044b406",
+        "type": "tab",
+        "label": "led test",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "43d5bbbf0d8670fb",
+        "type": "tab",
+        "label": "temperature chart",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b1104f3f3bf54c0a",
+        "type": "tab",
+        "label": "m5 button _ led strip",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6d565a3c.17c584",
+        "type": "subflow",
+        "name": "Toggle",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "a6449155.3cdd8"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 440,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "519f75ef.d3d8cc",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 440,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "d35764b.91d1e98",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "option1",
+                "type": "bool",
+                "value": "true"
+            },
+            {
+                "name": "option2",
+                "type": "bool",
+                "value": "false"
+            }
+        ],
+        "color": "#DDAA99",
+        "outputLabels": [
+            "Option 1",
+            "Option 2"
+        ],
+        "icon": "node-red/switch.svg",
+        "status": {
+            "x": 440,
+            "y": 100,
+            "wires": [
+                {
+                    "id": "519f75ef.d3d8cc",
+                    "port": 0
+                },
+                {
+                    "id": "d35764b.91d1e98",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "4d6296f2db4785e3",
+        "type": "mqtt-broker",
+        "name": "local mqtt broker on gateway",
+        "broker": "192.168.12.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f084747d9b4f2415",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "923f792c2cfb6089",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "2e7b447f8a602f27",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "f084747d9b4f2415",
+        "order": 1,
+        "disp": true,
+        "width": "15",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "85988cd0acc015a6",
+        "type": "ui_tab",
+        "name": "Demo",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f8a80f9111b2ac7e",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "85988cd0acc015a6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e0b5b7764a25ab46",
+        "type": "ui_group",
+        "name": "demo",
+        "tab": "85988cd0acc015a6",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "519f75ef.d3d8cc",
+        "type": "change",
+        "z": "6d565a3c.17c584",
+        "name": "Option 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "option1",
+                "tot": "env"
+            },
+            {
+                "t": "set",
+                "p": "next",
+                "pt": "flow",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d35764b.91d1e98",
+        "type": "change",
+        "z": "6d565a3c.17c584",
+        "name": "Option 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "option2",
+                "tot": "env"
+            },
+            {
+                "t": "set",
+                "p": "next",
+                "pt": "flow",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a6449155.3cdd8",
+        "type": "switch",
+        "z": "6d565a3c.17c584",
+        "name": "",
+        "property": "next",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "519f75ef.d3d8cc"
+            ],
+            [
+                "d35764b.91d1e98"
+            ]
+        ]
+    },
+    {
+        "id": "b926210dfd90ff81",
+        "type": "mqtt out",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "topic": "led-strip2/leds/rgb/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 1360,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "f9962c80b58bd36b",
+        "type": "mqtt in",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "topic": "rfid/card/uid",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4d6296f2db4785e3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "bbec06dfdae9f4c9"
+            ]
+        ]
+    },
+    {
+        "id": "bd9757aace4f9140",
+        "type": "switch",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "a3497497",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "a3497497",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 80,
+        "wires": [
+            [
+                "99e5694817ab1883",
+                "a1bc57e61894765e",
+                "d569c88e96d686d5",
+                "eee358dfac19116a"
+            ],
+            [
+                "8f7b4a253a4c4a0d"
+            ]
+        ]
+    },
+    {
+        "id": "99e5694817ab1883",
+        "type": "change",
+        "z": "1bf6eb380a536391",
+        "name": "Grant access",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 480,
+        "wires": [
+            [
+                "ef5b41838867554c",
+                "b926210dfd90ff81",
+                "8ab783db1cbbdb47",
+                "3cfe6ce5e7fd495d"
+            ]
+        ]
+    },
+    {
+        "id": "d532fac180bfeec2",
+        "type": "change",
+        "z": "1bf6eb380a536391",
+        "name": "Deny access",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 820,
+        "wires": [
+            [
+                "cb2c3d6eafae6d61",
+                "0a027219d55b2999",
+                "b926210dfd90ff81",
+                "3cfe6ce5e7fd495d"
+            ]
+        ]
+    },
+    {
+        "id": "8f7b4a253a4c4a0d",
+        "type": "switch",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "none",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "none",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "a1bc57e61894765e"
+            ],
+            [
+                "d532fac180bfeec2",
+                "82bb708fa8522976"
+            ]
+        ]
+    },
+    {
+        "id": "d569c88e96d686d5",
+        "type": "change",
+        "z": "1bf6eb380a536391",
+        "name": "Turn on lock",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "turn on",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 980,
+        "wires": [
+            [
+                "6f6e02de6ac1686e",
+                "bc9476f3aebe32d2"
+            ]
+        ]
+    },
+    {
+        "id": "2dd0a5ff7f0e23ae",
+        "type": "mqtt out",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "topic": "lock-relay/door/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 1150,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "eb2f7284e596dbc7",
+        "type": "mqtt out",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "topic": "rfid/buzzer/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 1080,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a1bc57e61894765e",
+        "type": "change",
+        "z": "1bf6eb380a536391",
+        "name": "Turn off buzzer",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1023",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 80,
+        "wires": [
+            [
+                "eb2f7284e596dbc7"
+            ]
+        ]
+    },
+    {
+        "id": "82bb708fa8522976",
+        "type": "change",
+        "z": "1bf6eb380a536391",
+        "name": "Buzz",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "800",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 240,
+        "wires": [
+            [
+                "ac132b31685e2f74",
+                "4d32b71b84504630"
+            ]
+        ]
+    },
+    {
+        "id": "dbe963f166cc6204",
+        "type": "mqtt out",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "topic": "oled/oled",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 1840,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "eee358dfac19116a",
+        "type": "change",
+        "z": "1bf6eb380a536391",
+        "name": "Display access granted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Access &&nl granted",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 420,
+        "wires": [
+            [
+                "d415e410994cd2bc"
+            ]
+        ]
+    },
+    {
+        "id": "cb2c3d6eafae6d61",
+        "type": "change",
+        "z": "1bf6eb380a536391",
+        "name": "Display access denied",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Access &&nl denied",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 600,
+        "wires": [
+            [
+                "d415e410994cd2bc"
+            ]
+        ]
+    },
+    {
+        "id": "5f22d7e3f3fb43de",
+        "type": "debug",
+        "z": "1bf6eb380a536391",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "bbec06dfdae9f4c9",
+        "type": "rbe",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 270,
+        "y": 100,
+        "wires": [
+            [
+                "bd9757aace4f9140"
+            ]
+        ]
+    },
+    {
+        "id": "d415e410994cd2bc",
+        "type": "trigger",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "op1": "&&cl",
+        "op2": "",
+        "op1type": "str",
+        "op2type": "pay",
+        "duration": "100",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1340,
+        "y": 280,
+        "wires": [
+            [
+                "dbe963f166cc6204",
+                "12076add34d21e78"
+            ]
+        ]
+    },
+    {
+        "id": "8333d0eb1882d6c6",
+        "type": "trigger",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "op1": "200",
+        "op2": "1023",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "500",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 940,
+        "y": 180,
+        "wires": [
+            [
+                "eb2f7284e596dbc7"
+            ]
+        ]
+    },
+    {
+        "id": "0a027219d55b2999",
+        "type": "trigger",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "op1": "red",
+        "op2": "black",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 980,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6f6e02de6ac1686e",
+        "type": "trigger",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "op1": "turn on",
+        "op2": "turn off",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "2",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 920,
+        "y": 960,
+        "wires": [
+            [
+                "2dd0a5ff7f0e23ae"
+            ]
+        ]
+    },
+    {
+        "id": "3303464781ca0e77",
+        "type": "mqtt out",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "topic": "oled/oled",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 1880,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "12076add34d21e78",
+        "type": "switch",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Access &&nl granted",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Access &&nl denied",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1430,
+        "y": 460,
+        "wires": [
+            [
+                "d2862318aa2cf822"
+            ],
+            [
+                "2acdc2a823933c9b"
+            ]
+        ]
+    },
+    {
+        "id": "2528094e864b8d64",
+        "type": "trigger",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "op1": "&&cl",
+        "op2": "Ready &&nl to scan",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "100",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1680,
+        "y": 400,
+        "wires": [
+            [
+                "3303464781ca0e77"
+            ]
+        ]
+    },
+    {
+        "id": "bcbd535efa47f285",
+        "type": "trigger",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "op1": "&&cl",
+        "op2": "Ready &&nl to scan",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "100",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1680,
+        "y": 520,
+        "wires": [
+            [
+                "3303464781ca0e77"
+            ]
+        ]
+    },
+    {
+        "id": "d2862318aa2cf822",
+        "type": "delay",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "4.9",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1510,
+        "y": 400,
+        "wires": [
+            [
+                "2528094e864b8d64"
+            ]
+        ]
+    },
+    {
+        "id": "2acdc2a823933c9b",
+        "type": "delay",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.9",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1510,
+        "y": 520,
+        "wires": [
+            [
+                "bcbd535efa47f285"
+            ]
+        ]
+    },
+    {
+        "id": "d4c8f08753d88615",
+        "type": "inject",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "turn on",
+        "payloadType": "str",
+        "x": 950,
+        "y": 1040,
+        "wires": [
+            [
+                "2dd0a5ff7f0e23ae"
+            ]
+        ]
+    },
+    {
+        "id": "ffc84413c3a9f6c4",
+        "type": "inject",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "turn off",
+        "payloadType": "str",
+        "x": 950,
+        "y": 1080,
+        "wires": [
+            [
+                "2dd0a5ff7f0e23ae"
+            ]
+        ]
+    },
+    {
+        "id": "ac132b31685e2f74",
+        "type": "delay",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 180,
+        "wires": [
+            [
+                "8333d0eb1882d6c6"
+            ]
+        ]
+    },
+    {
+        "id": "4d32b71b84504630",
+        "type": "mqtt out",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "topic": "rfid/buzzer/frequency/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 870,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "25f8cebea1bb0a74",
+        "type": "mqtt out",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "topic": "rfid/buzzer/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 1320,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "0483d5546a8c8910",
+        "type": "trigger",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "op1": "200",
+        "op2": "1023",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "500",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 980,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e9cc0750066cca06",
+        "type": "delay",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 810,
+        "y": 1240,
+        "wires": [
+            [
+                "0483d5546a8c8910"
+            ]
+        ]
+    },
+    {
+        "id": "e8088d2963b52ef7",
+        "type": "mqtt out",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "topic": "rfid/buzzer/frequency/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 870,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "bc9476f3aebe32d2",
+        "type": "change",
+        "z": "1bf6eb380a536391",
+        "name": "Buzz",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "3000",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 1060,
+        "wires": [
+            [
+                "e8088d2963b52ef7",
+                "e9cc0750066cca06",
+                "f0f349258505b6af"
+            ]
+        ]
+    },
+    {
+        "id": "c6d247dbbda3c166",
+        "type": "trigger",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "op1": "200",
+        "op2": "1023",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "500",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 980,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f0f349258505b6af",
+        "type": "delay",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "700",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 810,
+        "y": 1300,
+        "wires": [
+            [
+                "c6d247dbbda3c166"
+            ]
+        ]
+    },
+    {
+        "id": "ef5b41838867554c",
+        "type": "function",
+        "z": "1bf6eb380a536391",
+        "name": "leds fade in",
+        "func": "for (let index = 1; index <= 10; index++) {\n    msg.payload = index + \" green\"\n    \n    node.send(msg);\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 660,
+        "wires": [
+            [
+                "4f91a704dac33609",
+                "2ebfca2313f0bece"
+            ]
+        ]
+    },
+    {
+        "id": "4f91a704dac33609",
+        "type": "delay",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "0.05",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1170,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "adf84b803456f4d0",
+        "type": "function",
+        "z": "1bf6eb380a536391",
+        "name": "leds fade out",
+        "func": "for (let index = 10; index > 0; index--) {\n    msg.payload = index + \" black\"\n    \n    node.send(msg);\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 800,
+        "wires": [
+            [
+                "4f91a704dac33609"
+            ]
+        ]
+    },
+    {
+        "id": "2ebfca2313f0bece",
+        "type": "switch",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "10 green",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 910,
+        "y": 700,
+        "wires": [
+            [
+                "b3229605b02d6866"
+            ]
+        ]
+    },
+    {
+        "id": "b3229605b02d6866",
+        "type": "delay",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1900",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 740,
+        "wires": [
+            [
+                "adf84b803456f4d0"
+            ]
+        ]
+    },
+    {
+        "id": "91c3fb7d13a5abca",
+        "type": "inject",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "a3497497",
+        "payloadType": "str",
+        "x": 260,
+        "y": 160,
+        "wires": [
+            [
+                "bd9757aace4f9140"
+            ]
+        ]
+    },
+    {
+        "id": "8549b347d4f4f69e",
+        "type": "inject",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "none",
+        "payloadType": "str",
+        "x": 250,
+        "y": 200,
+        "wires": [
+            [
+                "bd9757aace4f9140"
+            ]
+        ]
+    },
+    {
+        "id": "51a3af6cdb7cadb4",
+        "type": "ui_button",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "group": "2e7b447f8a602f27",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "Unlock door",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "Green",
+        "className": "",
+        "icon": "",
+        "payload": "a3497497",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "bd9757aace4f9140"
+            ]
+        ]
+    },
+    {
+        "id": "8ab783db1cbbdb47",
+        "type": "debug",
+        "z": "1bf6eb380a536391",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "3cfe6ce5e7fd495d",
+        "type": "delay",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1900",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 540,
+        "wires": [
+            [
+                "68a3d05a0b7a336f"
+            ]
+        ]
+    },
+    {
+        "id": "68a3d05a0b7a336f",
+        "type": "change",
+        "z": "1bf6eb380a536391",
+        "name": "Grant access",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "fade_out",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 540,
+        "wires": [
+            [
+                "80e570910f27f622",
+                "8ab783db1cbbdb47"
+            ]
+        ]
+    },
+    {
+        "id": "80e570910f27f622",
+        "type": "mqtt out",
+        "z": "1bf6eb380a536391",
+        "name": "",
+        "topic": "led-strip2/anim",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 1360,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "6b5db4683f179080",
+        "type": "inject",
+        "z": "1ad39695a044b406",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2 red",
+        "payloadType": "str",
+        "x": 230,
+        "y": 200,
+        "wires": [
+            [
+                "20dcde558af25998"
+            ]
+        ]
+    },
+    {
+        "id": "20dcde558af25998",
+        "type": "mqtt out",
+        "z": "1ad39695a044b406",
+        "name": "",
+        "topic": "led-strip/strip2/rgb/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 580,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "88811fc1b7ed0392",
+        "type": "inject",
+        "z": "1ad39695a044b406",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "turn off",
+        "payloadType": "str",
+        "x": 210,
+        "y": 300,
+        "wires": [
+            [
+                "4a7735f8a821b453"
+            ]
+        ]
+    },
+    {
+        "id": "4a7735f8a821b453",
+        "type": "mqtt out",
+        "z": "1ad39695a044b406",
+        "name": "",
+        "topic": "led-strip/strip2/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 670,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "0a1783e35d6f3974",
+        "type": "inject",
+        "z": "1ad39695a044b406",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "turn on",
+        "payloadType": "str",
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "4a7735f8a821b453"
+            ]
+        ]
+    },
+    {
+        "id": "ce4bf9f31da2c9bf",
+        "type": "inject",
+        "z": "1ad39695a044b406",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "black",
+        "payloadType": "str",
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "20dcde558af25998"
+            ]
+        ]
+    },
+    {
+        "id": "c1914d7f89e69adc",
+        "type": "inject",
+        "z": "1ad39695a044b406",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "green",
+        "payloadType": "str",
+        "x": 210,
+        "y": 40,
+        "wires": [
+            [
+                "20dcde558af25998"
+            ]
+        ]
+    },
+    {
+        "id": "df2c51efa4ce0fcd",
+        "type": "function",
+        "z": "1ad39695a044b406",
+        "name": "leds fade in",
+        "func": "for (let index = 1; index <= 10; index++) {\n    msg.payload = index + \" green\"\n    \n    node.send(msg);\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 60,
+        "wires": [
+            [
+                "da90e949ed510788"
+            ]
+        ]
+    },
+    {
+        "id": "bf7bc0c1aa0bbbca",
+        "type": "inject",
+        "z": "1ad39695a044b406",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 40,
+        "wires": [
+            [
+                "df2c51efa4ce0fcd"
+            ]
+        ]
+    },
+    {
+        "id": "da90e949ed510788",
+        "type": "delay",
+        "z": "1ad39695a044b406",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "0.05",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 610,
+        "y": 140,
+        "wires": [
+            [
+                "20dcde558af25998"
+            ]
+        ]
+    },
+    {
+        "id": "3f6a29884cc1d221",
+        "type": "function",
+        "z": "1ad39695a044b406",
+        "name": "leds fade out",
+        "func": "for (let index = 10; index > 0; index--) {\n    msg.payload = index + \" black\"\n    \n    node.send(msg);\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 60,
+        "wires": [
+            [
+                "da90e949ed510788"
+            ]
+        ]
+    },
+    {
+        "id": "4c10db6211b72ed8",
+        "type": "inject",
+        "z": "1ad39695a044b406",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "3f6a29884cc1d221"
+            ]
+        ]
+    },
+    {
+        "id": "c6efcaffa7b79ed6",
+        "type": "ui_switch",
+        "z": "1ad39695a044b406",
+        "name": "",
+        "label": "Lights",
+        "tooltip": "",
+        "group": "2e7b447f8a602f27",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "led-strip/strip1/set",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "turn on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "turn off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 390,
+        "y": 540,
+        "wires": [
+            [
+                "4a7735f8a821b453"
+            ]
+        ]
+    },
+    {
+        "id": "a0a21bcb8e47d16f",
+        "type": "mqtt in",
+        "z": "43d5bbbf0d8670fb",
+        "name": "",
+        "topic": "temperature/sensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4d6296f2db4785e3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 360,
+        "wires": [
+            [
+                "e449640ab7a9b390",
+                "1e89fe7919ed71d1",
+                "fdd7092cadca42a6"
+            ]
+        ]
+    },
+    {
+        "id": "e449640ab7a9b390",
+        "type": "debug",
+        "z": "43d5bbbf0d8670fb",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "1e89fe7919ed71d1",
+        "type": "ui_chart",
+        "z": "43d5bbbf0d8670fb",
+        "name": "",
+        "group": "2e7b447f8a602f27",
+        "order": 0,
+        "width": "6",
+        "height": "6",
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 730,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fdd7092cadca42a6",
+        "type": "ui_gauge",
+        "z": "43d5bbbf0d8670fb",
+        "name": "",
+        "group": "2e7b447f8a602f27",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "30",
+        "colors": [
+            "#62a0ea",
+            "#2ec27e",
+            "#e66100"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 590,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "53c5c43aa2262bb7",
+        "type": "mqtt in",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "topic": "m5stickc/bigButton",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4d6296f2db4785e3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 200,
+        "wires": [
+            [
+                "6cd3b3262016fc53"
+            ]
+        ]
+    },
+    {
+        "id": "cee5018b4b0a597d",
+        "type": "debug",
+        "z": "b1104f3f3bf54c0a",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3f3bdcddc9e5abc2",
+        "type": "inject",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "red",
+        "payloadType": "str",
+        "x": 170,
+        "y": 700,
+        "wires": [
+            [
+                "d5ca8fca56e5d2da"
+            ]
+        ]
+    },
+    {
+        "id": "d5ca8fca56e5d2da",
+        "type": "mqtt out",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "topic": "led-strip2/leds/rgb/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 700,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "5b338de723b18667",
+        "type": "inject",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "black",
+        "payloadType": "str",
+        "x": 170,
+        "y": 740,
+        "wires": [
+            [
+                "d5ca8fca56e5d2da"
+            ]
+        ]
+    },
+    {
+        "id": "e0ccc97c576e8218",
+        "type": "inject",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "white",
+        "payloadType": "str",
+        "x": 170,
+        "y": 780,
+        "wires": [
+            [
+                "d5ca8fca56e5d2da"
+            ]
+        ]
+    },
+    {
+        "id": "dd082eca65af64ca",
+        "type": "inject",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "blue",
+        "payloadType": "str",
+        "x": 170,
+        "y": 660,
+        "wires": [
+            [
+                "d5ca8fca56e5d2da"
+            ]
+        ]
+    },
+    {
+        "id": "f8647347688e8633",
+        "type": "inject",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "green",
+        "payloadType": "str",
+        "x": 170,
+        "y": 620,
+        "wires": [
+            [
+                "d5ca8fca56e5d2da"
+            ]
+        ]
+    },
+    {
+        "id": "1e14702f8afa0dcb",
+        "type": "mqtt out",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "topic": "led-strip2/anim",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 1280,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "6cd3b3262016fc53",
+        "type": "rbe",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 290,
+        "y": 200,
+        "wires": [
+            [
+                "e07145c3e946bcdc"
+            ]
+        ]
+    },
+    {
+        "id": "0f891ca399c5bba9",
+        "type": "inject",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "blue_red",
+        "payloadType": "str",
+        "x": 840,
+        "y": 60,
+        "wires": [
+            [
+                "1e14702f8afa0dcb"
+            ]
+        ]
+    },
+    {
+        "id": "d06f3b2b45511c9d",
+        "type": "subflow:6d565a3c.17c584",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "env": [
+            {
+                "name": "option1",
+                "value": "on",
+                "type": "str"
+            },
+            {
+                "name": "option2",
+                "value": "off",
+                "type": "str"
+            }
+        ],
+        "x": 610,
+        "y": 160,
+        "wires": [
+            [
+                "456a9a6bd6526ce0",
+                "1e81d4da19ac836e"
+            ],
+            [
+                "456a9a6bd6526ce0",
+                "1e81d4da19ac836e"
+            ]
+        ]
+    },
+    {
+        "id": "e07145c3e946bcdc",
+        "type": "switch",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 200,
+        "wires": [
+            [
+                "d06f3b2b45511c9d"
+            ]
+        ]
+    },
+    {
+        "id": "2c600e51760452da",
+        "type": "mqtt in",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "topic": "m5stickc/smallButton",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4d6296f2db4785e3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "fe2131ff29e8fc2f"
+            ]
+        ]
+    },
+    {
+        "id": "fe2131ff29e8fc2f",
+        "type": "rbe",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 330,
+        "y": 260,
+        "wires": [
+            [
+                "2d10fd9bf4387322"
+            ]
+        ]
+    },
+    {
+        "id": "aafe9a4c1abdb027",
+        "type": "subflow:6d565a3c.17c584",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "env": [
+            {
+                "name": "option1",
+                "value": "scroll",
+                "type": "str"
+            },
+            {
+                "name": "option2",
+                "value": "fade_out",
+                "type": "str"
+            }
+        ],
+        "x": 650,
+        "y": 260,
+        "wires": [
+            [
+                "1e14702f8afa0dcb",
+                "cee5018b4b0a597d"
+            ],
+            [
+                "cee5018b4b0a597d",
+                "1e14702f8afa0dcb"
+            ]
+        ]
+    },
+    {
+        "id": "7e96a1ec96c57c8d",
+        "type": "ui_button",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "group": "f8a80f9111b2ac7e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "OFF",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "BLACK",
+        "className": "",
+        "icon": "",
+        "payload": "off",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 470,
+        "y": 580,
+        "wires": [
+            [
+                "456a9a6bd6526ce0"
+            ]
+        ]
+    },
+    {
+        "id": "e1df5707895f163c",
+        "type": "ui_button",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "group": "f8a80f9111b2ac7e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "ON",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "white",
+        "className": "",
+        "icon": "",
+        "payload": "on",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 470,
+        "y": 620,
+        "wires": [
+            [
+                "456a9a6bd6526ce0"
+            ]
+        ]
+    },
+    {
+        "id": "83fb1d0ce667027d",
+        "type": "mqtt in",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "topic": "m5stickc2/bigButton",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4d6296f2db4785e3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 320,
+        "wires": [
+            [
+                "8430fb4495484a32"
+            ]
+        ]
+    },
+    {
+        "id": "8430fb4495484a32",
+        "type": "rbe",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "db02868251270626"
+            ]
+        ]
+    },
+    {
+        "id": "68f299918f875ba4",
+        "type": "subflow:6d565a3c.17c584",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "env": [
+            {
+                "name": "option1",
+                "value": "0",
+                "type": "str"
+            },
+            {
+                "name": "option2",
+                "value": "1",
+                "type": "str"
+            }
+        ],
+        "x": 590,
+        "y": 320,
+        "wires": [
+            [
+                "1e14702f8afa0dcb",
+                "cee5018b4b0a597d"
+            ],
+            [
+                "1e14702f8afa0dcb",
+                "cee5018b4b0a597d"
+            ]
+        ]
+    },
+    {
+        "id": "db02868251270626",
+        "type": "switch",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 320,
+        "wires": [
+            [
+                "68f299918f875ba4"
+            ]
+        ]
+    },
+    {
+        "id": "c015bdb2cf59ab36",
+        "type": "mqtt in",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "topic": "m5stickc2/smallButton",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4d6296f2db4785e3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 380,
+        "wires": [
+            [
+                "406a07264a3385b5"
+            ]
+        ]
+    },
+    {
+        "id": "406a07264a3385b5",
+        "type": "rbe",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 330,
+        "y": 380,
+        "wires": [
+            [
+                "4707738fb741e11b"
+            ]
+        ]
+    },
+    {
+        "id": "4707738fb741e11b",
+        "type": "subflow:6d565a3c.17c584",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "env": [
+            {
+                "name": "option1",
+                "value": "scroll",
+                "type": "str"
+            },
+            {
+                "name": "option2",
+                "value": "fade_out",
+                "type": "str"
+            }
+        ],
+        "x": 490,
+        "y": 380,
+        "wires": [
+            [
+                "1e14702f8afa0dcb"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1c3cb4b89a66332d",
+        "type": "inject",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "x": 810,
+        "y": 560,
+        "wires": [
+            [
+                "456a9a6bd6526ce0"
+            ]
+        ]
+    },
+    {
+        "id": "e06518a2c3b12646",
+        "type": "inject",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "x": 810,
+        "y": 520,
+        "wires": [
+            [
+                "456a9a6bd6526ce0"
+            ]
+        ]
+    },
+    {
+        "id": "456a9a6bd6526ce0",
+        "type": "mqtt out",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "topic": "m5stickc2/led/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 1050,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1e81d4da19ac836e",
+        "type": "change",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "on",
+                "fromt": "str",
+                "to": "rainbow",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 160,
+        "wires": [
+            [
+                "1e14702f8afa0dcb",
+                "cee5018b4b0a597d",
+                "b3b1fb6de2af81a0"
+            ]
+        ]
+    },
+    {
+        "id": "b3b1fb6de2af81a0",
+        "type": "mqtt out",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "topic": "led-strip3/anim",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 1200,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "589d09154be59531",
+        "type": "mqtt out",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "topic": "led-strip3/leds/rgb/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 720,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "2d10fd9bf4387322",
+        "type": "switch",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 260,
+        "wires": [
+            [
+                "aafe9a4c1abdb027"
+            ]
+        ]
+    },
+    {
+        "id": "9781cce1adf9cb8f",
+        "type": "ui_colour_picker",
+        "z": "b1104f3f3bf54c0a",
+        "name": "",
+        "label": "Testpicker",
+        "group": "2e7b447f8a602f27",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": true,
+        "showValue": true,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "led-strip/strip1/rgb/set",
+        "topicType": "str",
+        "className": "",
+        "x": 420,
+        "y": 820,
+        "wires": [
+            [
+                "d5ca8fca56e5d2da"
+            ]
+        ]
+    }
+]
